@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  celerybeat:
+    build: celerybeat/
+    image: beats/celerybeat
+    container_name: beats.celerybeat
+    restart: always
+    env_file:
+      - .env
+    network_mode: host
