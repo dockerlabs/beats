@@ -1,0 +1,29 @@
+---
+metricbeat.modules:
+- module: system
+  metricsets:
+    # - core
+    - cpu
+    # - diskio
+    - filesystem
+    - fsstat
+    - load
+    - memory
+    - network
+    - process
+    - socket
+  enabled: true
+  period: 120s
+  processes: ['.*']
+  # cpu_ticks: false
+
+- module: nginx
+  metricsets: ['stubstatus']
+  enabled: true
+  period: 60s
+  hosts: ['${NGINX_STATUS_URL}']
+
+output.logstash:
+  hosts: ['${LOGSTASH_HOST}']
+  # tls:
+  #   certificate_authorities: ['${SSL_BEATS_DIR}/server.crt']

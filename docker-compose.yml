@@ -21,3 +21,14 @@ services:
     volumes:
       - /var/log:/mnt/logs
       # - /etc/ssl/beats:/etc/ssl/beats
+
+  metricbeat:
+    build: metricbeat/
+    image: beats/metricbeat
+    container_name: beats.metricbeat
+    restart: always
+    env_file:
+      - .env
+    # volumes:
+      # - /etc/ssl/beats:/etc/ssl/beats
+    network_mode: host
