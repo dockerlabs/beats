@@ -1,0 +1,16 @@
+*.*~
+*.directory
+*.db
+*.DS_Store
+*.box
+*.cer
+*.log
+*.pem
+*.p12
+*.pyc
+*.sql
+*.sqlite3
+*.xls
+
+/.env
+sftp-config.json
