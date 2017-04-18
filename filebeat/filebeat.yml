@@ -1,0 +1,29 @@
+---
+filebeat.prospectors:
+-
+  paths:
+    - "/mnt/logs/*.log"
+  document_type: logs
+
+-
+  paths:
+    - "/mnt/logs/ulog/ulogd.json"
+  json:
+    message_key: net
+    keys_under_root: true
+    overwrite_keys: false
+  document_type: ulogd2
+
+processors:
+- add_cloud_metadata:
+
+# name:shipper-name
+# tags: ["service-X", "web-tier"]
+# fields:
+#   env: staging
+
+output:
+  logstash:
+    hosts: ['${LOGSTASH_HOST}']
+    # tls:
+    #   certificate_authorities: ['${SSL_BEATS_DIR}/server.crt']

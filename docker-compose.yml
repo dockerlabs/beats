@@ -9,3 +9,15 @@ services:
     env_file:
       - .env
     network_mode: host
+
+  filebeat:
+    build: filebeat/
+    image: beats/filebeat
+    container_name: beats.filebeat
+    restart: always
+    privileged: true
+    env_file:
+      - .env
+    volumes:
+      - /var/log:/mnt/logs
+      # - /etc/ssl/beats:/etc/ssl/beats
