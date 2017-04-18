@@ -1,5 +1,7 @@
 # Elastic Beats
 
+[![Build Status](https://travis-ci.org/dockerlabs/beats.svg?branch=master)](https://travis-ci.org/dockerlabs/beats)
+
 ### Environ
 
 Create `.env` file
