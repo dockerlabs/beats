@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  filebeat:
+    networks:
+      - elk_elk
+
+networks:
+  elk_elk:
+    external: yes
