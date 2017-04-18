@@ -32,3 +32,16 @@ services:
     # volumes:
       # - /etc/ssl/beats:/etc/ssl/beats
     network_mode: host
+
+  packetbeat:
+    build: packetbeat/
+    image: beats/packetbeat
+    container_name: beats.packetbeat
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    env_file:
+      - .env
+    # volumes:
+      # - /etc/ssl/beats:/etc/ssl/beats
+    network_mode: host
